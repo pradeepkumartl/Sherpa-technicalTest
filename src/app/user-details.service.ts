@@ -14,10 +14,10 @@ export class UserDetailsService {
 
   //returns all user for a page number
   getAllUsers(page){
-    let end = page*this.pageSize,
-        start = end - this.pageSize;
+    let end = page*this.pageSize < constants.totalUsers ? page*this.pageSize : constants.totalUsers,
+        start = (page-1)*this.pageSize;
     this.userList.length = 0;
-    for(let i=start; i<end; i++){
+    for(let i=start; i < end; i++){
       let userIndex = i+1;
       let newUser = new userModel();
       newUser.userName = 'userName'+userIndex;

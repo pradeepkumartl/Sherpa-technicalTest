@@ -25,7 +25,7 @@ __webpack_require__.r(__webpack_exports__);
 class constants {
 }
 constants.pageSize = 9;
-constants.totalUsers = 36;
+constants.totalUsers = 34;
 
 
 /***/ }),
@@ -78,7 +78,7 @@ class HomeComponent {
     }
     ngOnInit() {
         this.totalUsers = this.userService.totalUsers();
-        this.totalPages = this.totalUsers / _assumptions__WEBPACK_IMPORTED_MODULE_1__["constants"].pageSize;
+        this.totalPages = Math.ceil(this.totalUsers / _assumptions__WEBPACK_IMPORTED_MODULE_1__["constants"].pageSize);
         this.getUsers(this.currentPage);
     }
     getUsers(page) {
@@ -218,7 +218,7 @@ class UserDetailsService {
     }
     //returns all user for a page number
     getAllUsers(page) {
-        let end = page * this.pageSize, start = end - this.pageSize;
+        let end = page * this.pageSize < _assumptions__WEBPACK_IMPORTED_MODULE_2__["constants"].totalUsers ? page * this.pageSize : _assumptions__WEBPACK_IMPORTED_MODULE_2__["constants"].totalUsers, start = (page - 1) * this.pageSize;
         this.userList.length = 0;
         for (let i = start; i < end; i++) {
             let userIndex = i + 1;

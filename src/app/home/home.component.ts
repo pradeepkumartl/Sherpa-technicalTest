@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(){
     this.totalUsers = this.userService.totalUsers();
-    this.totalPages = this.totalUsers/constants.pageSize;
+    this.totalPages = Math.ceil(this.totalUsers/constants.pageSize);
     this.getUsers(this.currentPage);
   }
 
