@@ -1,0 +1,11 @@
+<div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+    <div style="margin-bottom: 50px;"><h4>User details page</h4></div>
+    <div class="card col-sm-5 my-20 h-40">
+        <app-user-card [user]="user">
+            <div>
+                <span class="badge badge-success">Followers {{user.followers}}</span>
+                <span class="badge badge-primary">Following {{user.following}}</span>
+            </div>
+        </app-user-card>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="grid-cls mx-auto mt-20">
+      <div class="card" *ngFor="let user of users" (click)="openUserDetails($event,user.userName)">
+          <app-user-card [user]="user"></app-user-card>
+      </div>
+    </div>
+    <nav class="w-100 d-flex justify-content-center">
+      <ul class="pagination">
+        <li class="page-item" aria-label="First page" [ngClass]="currentPage === 1 ? 'disabled':''"><a class="page-link" (click)="getUsers(1)"><span aria-hidden="true">&laquo;</span></a></li>
+        <li class="page-item" aria-label="Previous page" [ngClass]="currentPage === 1 ? 'disabled':''"><a class="page-link" (click)="getUsers(currentPage-1)"><span aria-hidden="true">&lt;</span></a></li>
+        <span style="margin:10px;width: 100px;">Page: <input type="number" min="1" [max]="totalPages" [(ngModel)]="currentPage" (change)="getUsers(currentPage)" (keyup)="getUsers(currentPage)"></span>
+        <li class="page-item" aria-label="Next page" [ngClass]="currentPage === totalPages ? 'disabled':''"><a class="page-link" (click)="getUsers(currentPage+1)"><span aria-hidden="true">&gt;</span></a></li>
+        <li class="page-item" aria-label="Last page" [ngClass]="currentPage === totalPages ? 'disabled':''"><a class="page-link" (click)="getUsers(totalPages)"><span aria-hidden="true">&raquo;</span></a></li>
+      </ul>
+    </nav>
+  </div>
