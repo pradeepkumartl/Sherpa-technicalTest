@@ -11,6 +11,8 @@ export class UserDetailsService {
   userList:any = [];
 
   pageSize: number = constants.pageSize;
+
+  //returns all user for a page number
   getAllUsers(page){
     let end = page*this.pageSize,
         start = end - this.pageSize;
@@ -25,10 +27,12 @@ export class UserDetailsService {
     return this.userList;
   }
 
+  //return total number of users, used to calculated the pages
   totalUsers(){
     return constants.totalUsers;
   }
 
+  //returns user details for a particular user name  
   getUserDetails(userName){
     let userObject = new detailedUserModel();  
     this.userList.forEach(element => {

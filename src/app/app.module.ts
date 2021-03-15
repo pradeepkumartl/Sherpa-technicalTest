@@ -10,10 +10,10 @@ import { UserCardComponent } from './user-card/user-card.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UserDetailsComponent,
-    HomeComponent,
-    UserCardComponent
+    AppComponent, //bootstrapped App component
+    HomeComponent, //Landing page component, where the paginated user cards are displayed. It in turn uses Users Card component
+    UserDetailsComponent, //Component displays single user's details. It in turn uses Users Card component
+    UserCardComponent //Reusable component used between Home page cards and user details component
   ],
   imports: [
     BrowserModule,
@@ -21,7 +21,6 @@ import { UserCardComponent } from './user-card/user-card.component';
     AppRoutingModule
   ],
   providers: [],
-  //schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
